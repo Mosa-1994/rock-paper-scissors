@@ -1,22 +1,25 @@
 /* function return random number 0, 1 or 2. */
 function getComputerChoice () {
-    return Math.floor(Math.random() * 2)
+    return Math.floor(Math.random() * 3)
 }
 
-const computerChoice = getComputerChoice ();
+const computerRandomNumber = getComputerChoice ();
+
+console.log(computerRandomNumber);
 
 /* else if statement to get rock, paper, sciccors printed out. */
 
-if (getComputerChoice === 0) {
-    log("Rock");
-} else if (getComputerChoice === 1) {
-    log("Paper");
+let computerChoice = '';
+
+if (computerRandomNumber === 0) {
+    computerChoice = "Rock";
+} else if (computerRandomNumber === 1) {
+    computerChoice = "Paper";
 } else {
-    log("Scissors");
+    computerChoice = "Scissors";
 }
 
-
-console.log("I choose ${computerChoice}.");
+console.log(`I choose ${computerChoice}.`);
 
 /* 
 if 0 log rock;
