@@ -1,4 +1,4 @@
-/* function return random number 0, 1 or 2. */
+/* function returns random number 0, 1 or 2. */
 function getComputerChoice () {
     return Math.floor(Math.random() * 3)
 }
@@ -20,6 +20,15 @@ if (computerRandomNumber === 0) {
 }
 
 console.log(`I choose ${computerChoice}.`);
+
+/* Players side of the game */
+function getHumanChoice () {
+    prompt("Make your choice.")
+}
+
+let humanChoice = getHumanChoice ();
+
+console.log(humanChoice);
 
 /* 
 if 0 log rock;
