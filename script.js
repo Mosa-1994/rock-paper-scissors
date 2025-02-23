@@ -1,11 +1,13 @@
 /* function returns random number 0, 1 or 2. */
-const computerRandomNumber = function getComputerChoice () {
+function getComputerChoice () {
     return Math.floor(Math.random() * 3)
 }
 
+const computerRandomNumber = getComputerChoice ();
+
 console.log(computerRandomNumber);
 
-/* else if statement to get rock, paper, sciccors printed out. */
+/* else if statement to get rock, paper, scissors printed out. */
 
 let computerChoice = '';
 
@@ -20,57 +22,53 @@ if (computerRandomNumber === 0) {
 console.log(`I choose ${computerChoice}.`);
 
 /* Players side of the game */
-function getHumanChoice () {
-    const humanInput = prompt("Make your choice.");
-    return humanInput.toLowerCase;
-}
+let humanChoice = prompt("Make your choice", "Rock, Paper or Scissors.")
 
-let humanChoice = getHumanChoice ();
-
-console.log(humanChoice);
+console.log(`You choose ${humanChoice}.`);
 
 /* Player wins if: 
 computer  |  Player
 ---------------------
 Rock      |  Paper
-Paper     |  Sciccors
-Sciccors  |  Rock
+Paper     |  Scissors
+Scissors  |  Rock
 
 Computer wins if
 Computer  |  Player
 -------------------
-Rock      |  Sciccors
+Rock      |  Scissors
 Paper     |  Rock
-Sciccors  |  Paper
+Scissors  |  Paper
 */
 
-
-let playerWins = '';
-let computerWins = '';
-let tie = '';
-if (humanChoice === "Paper" && computerChoice === "Rock") {
-   playerWins 
-} else if (humanChoice === "Sciccors" && computerChoice === "Paper") {
-    playerWins
-} else if (humanChoice === "Rock" && computerChoice === "Sciccors") {
-    playerWins
-} else if (computerChoice === "Rock" && humanChoice === "Sciccors") {
-    computerWins
+let playerWins;
+let tie;
+if (computerChoice === "Rock" && humanChoice === "Paper") {
+   playerWins = true;
+} else if (computerChoice === "Paper" && humanChoice === "Scissors") {
+    playerWins = true;
+} else if (computerChoice === "Scissors" && humanChoice === "Rock") {
+    playerWins = true;
+} else if (computerChoice === "Rock" && humanChoice === "Scissors") {
+    playerWins = false;
 } else if (computerChoice === "Paper" && humanChoice === "Rock") {
-    computerWins
-} else if (computerChoice === "Sciccors" && humanChoice === "Paper") {
-    tie
+    playerWins = false;
+} else if (computerChoice === "Scissors" && humanChoice === "Paper") {
+    playerWins = false;
+} else if (computerChoice === humanChoice) {
+    tie = true;
 } else {
-    console.log('Oops... that went wrong.')
+    tie = false
 }
 
-
-if (playerWins) {
-    console.log(`3... 2... 1... ${computerChoice.toUpperCase}! Congrats you've won!`)
-} else if (computerWins) {
-    console.log(`3... 2... 1... ${computerChoice.toUpperCase}! Mwhuahaha I win, you lose!`)
-} else if (tie) {
+if (playerWins === true) {
+    console.log(`Congrats you've won!`)
+} else if (playerWins === false) {
+    console.log(`Mwhuahaha I win, you lose!`)
+} else if (tie === true) {
     console.log(`It's a tie... Let's try again.`)
+} else if (tie === false) {
+    console.log('Oops... that went wrong.')
 }
 
 /* 
