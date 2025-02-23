@@ -1,4 +1,7 @@
 /* Computer input */
+let humanScore = 0;
+let computerScore = 0;
+
 for (let game = 0; game < 5; game++) {
 function getComputerChoice() {
     let computerRandomNumber = Math.floor(Math.random() * 3);
@@ -35,9 +38,6 @@ console.log(`You choose ${humanChoice}.`);
 
 /* PlayRound functie */
 
-let humanScore = 0;
-let computerScore = 0;
-
 function playRound(humanChoice, computerChoice) {
     if (computerChoice === "Rock" && humanChoice === "Paper") {
         humanScore++;
@@ -70,7 +70,7 @@ playRound(humanChoice, computerChoice);
 console.log(`Human Score: ${humanScore}, Computer Score: ${computerScore}`);
 }
 
-console.log(`We've played ${game} games. You've won ${humanScore} times. I won ${computerScore} times.`)
+console.log(`We've played 5 games. You've won ${humanScore} times. I won ${computerScore} times.`)
 
 
 /*
