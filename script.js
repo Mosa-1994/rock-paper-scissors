@@ -1,19 +1,10 @@
-/* 
-if 0 log rock;
-if 1 log paper;
-if 2 log scissors;
-*/
-
-/* function returns random number 0, 1 or 2. */
+/* Computers answer
+function returns random number 0, 1 or 2. */
 function getComputerChoice () {
     return Math.floor(Math.random() * 3)
 }
-
 const computerRandomNumber = getComputerChoice ();
-
 console.log(computerRandomNumber);
-
-/* else if statement to get rock, paper, scissors printed out. */
 
 let computerChoice = '';
 
@@ -32,26 +23,11 @@ let humanChoice = prompt("Make your choice", "Rock, Paper or Scissors.")
 
 console.log(`You choose ${humanChoice}.`);
 
-/* Player wins if: 
-computer  |  Player
----------------------
-Rock      |  Paper
-Paper     |  Scissors
-Scissors  |  Rock
-
-Computer wins if
-Computer  |  Player
--------------------
-Rock      |  Scissors
-Paper     |  Rock
-Scissors  |  Paper
-*/
-
 let playerWins;
 let computerWins = (playerWins === false);
 let tie;
 
-function gameLogic () {
+function playGame () {
 if (computerChoice === "Rock" && humanChoice === "Paper") {
    playerWins = true;
 } else if (computerChoice === "Paper" && humanChoice === "Scissors") {
@@ -83,12 +59,6 @@ if (playerWins === true) {
 }
 }
 
-/* Tracking the score.
-If playerWins === true, than playerWins +1.
-If playerWins === false, than computerWins +1.
-If tie === true, nothing happens.
-*/
-
 const humanScore = playerWins++;
 const computerScore = computerWins++;
 
@@ -97,8 +67,4 @@ if (tie === true) {
 } else {
     console.log(humanScore + " vs " + computerScore);
 }
-
-/* 
-How to make the if else statement from round 1 useable for round 2, 3, 4, 5? Added function to else if statement: gameLogic (); 
-*/
 
