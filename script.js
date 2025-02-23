@@ -64,16 +64,9 @@ function playRound(humanChoice, computerChoice) {
      }
 }
 
-
 /* Output 1 round */
 playRound(humanChoice, computerChoice);
 console.log(`Human Score: ${humanScore}, Computer Score: ${computerScore}`);
 }
 
 console.log(`We've played 5 games. You've won ${humanScore} times. I won ${computerScore} times.`)
-
-
-/*
-for (let totalGame = 0; totalGame < 5; totalGame++) {
-    humanInput ();
-} */
