@@ -50,6 +50,8 @@ Scissors  |  Paper
 let playerWins;
 let computerWins = (playerWins === false);
 let tie;
+
+function gameLogic () {
 if (computerChoice === "Rock" && humanChoice === "Paper") {
    playerWins = true;
 } else if (computerChoice === "Paper" && humanChoice === "Scissors") {
@@ -79,6 +81,7 @@ if (playerWins === true) {
 } else {
     console.log(`Oops... something went wrong. Let's try again.`)
 }
+}
 
 /* Tracking the score.
 If playerWins === true, than playerWins +1.
@@ -89,4 +92,13 @@ If tie === true, nothing happens.
 const humanScore = playerWins++;
 const computerScore = computerWins++;
 
-console.log(humanScore + " vs " + computerScore);
+if (tie === true) {
+    let roundTwo = prompt("Let's try again", "Rock, Paper or Scissors?")
+} else {
+    console.log(humanScore + " vs " + computerScore);
+}
+
+/* 
+How to make the if else statement from round 1 useable for round 2, 3, 4, 5? Added function to else if statement: gameLogic (); 
+*/
+
