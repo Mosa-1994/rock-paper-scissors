@@ -1,70 +1,79 @@
-/* Computers answer
-function returns random number 0, 1 or 2. */
-function getComputerChoice () {
-    return Math.floor(Math.random() * 3)
+/* Computer input */
+for (let game = 0; game < 5; game++) {
+function getComputerChoice() {
+    let computerRandomNumber = Math.floor(Math.random() * 3);
+    return computerRandomNumber;
 }
-const computerRandomNumber = getComputerChoice ();
+
+let computerRandomNumber = getComputerChoice();
 console.log(computerRandomNumber);
 
-let computerChoice = '';
-
-if (computerRandomNumber === 0) {
-    computerChoice = "Rock";
-} else if (computerRandomNumber === 1) {
-    computerChoice = "Paper";
-} else {
-    computerChoice = "Scissors";
+function computerInput() {
+    let computerChoice = '';
+    if (computerRandomNumber === 0) {
+        computerChoice = "Rock";
+    } else if (computerRandomNumber === 1) {
+        computerChoice = "Paper";
+    } else {
+        computerChoice = "Scissors";
+    }
+    return computerChoice
 }
 
+let computerChoice = computerInput();
 console.log(`I choose ${computerChoice}.`);
 
-/* Players side of the game */
-let humanChoice = prompt("Make your choice", "Rock, Paper or Scissors.")
+/* Human input */
 
+function humanInput() {
+    let humanChoice = prompt("Make your choice", "Rock, Paper or Scissors?");
+    return humanChoice;
+}
+
+let humanChoice = humanInput();
 console.log(`You choose ${humanChoice}.`);
 
-let playerWins;
-let computerWins = (playerWins === false);
-let tie;
+/* PlayRound functie */
 
-function playGame () {
-if (computerChoice === "Rock" && humanChoice === "Paper") {
-   playerWins = true;
-} else if (computerChoice === "Paper" && humanChoice === "Scissors") {
-    playerWins = true;
-} else if (computerChoice === "Scissors" && humanChoice === "Rock") {
-    playerWins = true;
-} else if (computerChoice === "Rock" && humanChoice === "Scissors") {
-    playerWins = false;
-} else if (computerChoice === "Paper" && humanChoice === "Rock") {
-    playerWins = false;
-} else if (computerChoice === "Scissors" && humanChoice === "Paper") {
-    playerWins = false;
-} else if (computerChoice === humanChoice) {
-    tie = true
-} else {
-    tie = false
+let humanScore = 0;
+let computerScore = 0;
+
+function playRound(humanChoice, computerChoice) {
+    if (computerChoice === "Rock" && humanChoice === "Paper") {
+        humanScore++;
+        console.log(`Congrats you've won!`);
+     } else if (computerChoice === "Paper" && humanChoice === "Scissors") {
+        humanScore++;
+        console.log(`Congrats you've won!`);
+     } else if (computerChoice === "Scissors" && humanChoice === "Rock") {
+        humanScore++;
+        console.log(`Congrats you've won!`);
+     } else if (computerChoice === "Rock" && humanChoice === "Scissors") {
+         computerScore++;
+         console.log(`Mwhuahaha I win, you lose!`);
+     } else if (computerChoice === "Paper" && humanChoice === "Rock") {
+        computerScore++;
+        console.log(`Mwhuahaha I win, you lose!`);
+     } else if (computerChoice === "Scissors" && humanChoice === "Paper") {
+        computerScore++;
+        console.log(`Mwhuahaha I win, you lose!`);
+     } else if (computerChoice === humanChoice) {
+        console.log(`It's a tie... Let's try again.`);
+     } else {
+        console.log(`Oops... something went wrong. Let's try again.`)
+     }
 }
 
-/* Final outcome */
 
-if (playerWins === true) {
-    console.log(`Congrats you've won!`)
-} else if (playerWins === false) {
-    console.log(`Mwhuahaha I win, you lose!`)
-} else if (tie === true) {
-    console.log(`It's a tie... Let's try again.`)
-} else {
-    console.log(`Oops... something went wrong. Let's try again.`)
-}
+/* Output 1 round */
+playRound(humanChoice, computerChoice);
+console.log(`Human Score: ${humanScore}, Computer Score: ${computerScore}`);
 }
 
-const humanScore = playerWins++;
-const computerScore = computerWins++;
+console.log(`We've played ${game} games. You've won ${humanScore} times. I won ${computerScore} times.`)
 
-if (tie === true) {
-    let roundTwo = prompt("Let's try again", "Rock, Paper or Scissors?")
-} else {
-    console.log(humanScore + " vs " + computerScore);
-}
 
+/*
+for (let totalGame = 0; totalGame < 5; totalGame++) {
+    humanInput ();
+} */
